@@ -13,13 +13,10 @@ df = pd.DataFrame(data.data, columns=data.feature_names)
 print(data.feature_names)
 print("\n")
 df['target'] = data.target
-# Split Training and Test Dataset
 X_train, X_test, Y_train, Y_test = train_test_split(df[data.feature_names], df['target'])
 print(len(X_train))
 print(len(X_test))
-# DT = DecisionTreeClassifier()
 DT = DecisionTreeClassifier(criterion="gini")
-# Fit model
 model = DT.fit(X_train, Y_train)
 y_preds = model.predict(X_test)
 print(y_preds)
